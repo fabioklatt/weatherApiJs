@@ -5,7 +5,7 @@ const apiUnsplash = "https://source.unsplash.com/1600x900/?"
 
 const cityInput = document.querySelector("#city-input")
 const searchBtn = document.getElementById("search")
-
+const sugButton = document.querySelector(".sugButton")
 const cityElement = document.querySelector("#city")
 const tempElement = document.querySelector("#temperature span")
 const descElement = document.querySelector("#description")
@@ -83,6 +83,15 @@ searchBtn.addEventListener('click', (e)=>{
     e.preventDefault()
    const city = cityInput.value
    showWeatherData(city)
+})
+
+const sugButtons = document.querySelectorAll("#suggestions button")
+sugButtons.forEach((btn) => {
+    btn.addEventListener("click", () =>{
+        const city = btn.getAttribute("id")
+        showWeatherData(city)
+        console.log(city)
+    })
 })
 
 //ao clicar enter
